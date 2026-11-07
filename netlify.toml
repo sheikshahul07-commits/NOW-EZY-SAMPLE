@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NOWEZY_SECURITY_SECRET = "nowezy-enterprise-shield-2026-bachelors-vault"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

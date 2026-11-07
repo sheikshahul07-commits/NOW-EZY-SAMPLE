@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+/* Hide Next.js Dev Indicator Badge ("N" at bottom left) */
+[data-nextjs-dev-tools-indicator],
+[data-nextjs-toast],
+nextjs-portal,
+#__next-build-watcher,
+[data-netlify-drawer],
+.netlify-badge,
+iframe#netlify-feedback-widget,
+div[class*="netlify"],
+div[id*="netlify"],
+a[href*="netlify.com"][class*="badge"],
+[class*="netlify-feedback"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+:root {
+  --brand-crimson: #C01E4E;
+  --brand-crimson-hover: #A11840;
+  --brand-slate-dark: #0B0F19;
+  --brand-slate-card: #111827;
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-brand: #C01E4E;
+  --color-brand-dark: #9F1239;
+  --color-brand-slate: #0B0F19;
+}
+
+body {
+  background: #F8FAFC;
+  color: #0F172A;
+  font-family: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Radar & Map Marker Animations */
+@keyframes now-ezy-ripple {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.animate-radar-ripple {
+  animation: now-ezy-ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Minimal Line Animation around Listing Photos */
+@keyframes photo-border-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-photo-border {
+  background-size: 200% 200%;
+  animation: photo-border-shimmer 4s ease infinite;
+}
+
+.leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Infinite Reviews Marquee Animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 45s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+html {
+  scroll-behavior: smooth;
+}
